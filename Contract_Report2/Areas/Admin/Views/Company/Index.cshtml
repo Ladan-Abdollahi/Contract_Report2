@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Contract_Report2.ModelDataLayer.Entities.Company>
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="content" dir="rtl">
+ @*    <div class="shadow-none p-3 mb-5 bg-body-tertiary rounded" style=" margin-top:25px;">
+        لیست شرکت ها
+    </div> *@
+
+    <div style="margin-bottom:25px ; margin-top:25px">
+        <a class="btn btn-primary" asp-controller="Company" asp-action="AddCompany">
+            <i class="glyphicon glyphicon-plus"></i>
+            افزودن شرکت جدید
+        </a>
+    </div>
+
+    <div>
+        <div class="w3-example">
+            <table class=" table table-bordered table-striped table-hover" style="border-radius:2px; box-shadow:3px 3px 1px 0 gray;">
+                <thead>
+                    <tr>
+                       @*  <th>
+                            @Html.DisplayNameFor(model => model.CompanyID)
+                        </th> *@
+                        <th>
+                            @Html.DisplayNameFor(model => model.CompanyName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EconomyCode)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ManagerName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ManagerId)
+                        </th>
+                        <th>
+                            عملیات
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                         @*    <td>
+                                @Html.DisplayFor(modelItem=>item.CompanyID )
+                            </td> *@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CompanyName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EconomyCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ManagerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ManagerId)
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" asp-controller="Company" asp-action="EditCompany" asp-route-CompanyID="@item.CompanyID">ویرایش</a> |
+                                <a class="btn btn-danger" asp-controller="Company" asp-action="DeleteCompany" asp-route-CompanyID="@item.CompanyID">حذف</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

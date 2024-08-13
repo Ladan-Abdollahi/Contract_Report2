@@ -1,0 +1,81 @@
+﻿@model Contract_Report2.ModelDataLayer.Entities.Company
+@{
+    ViewData["Title"] = "AddCompany";
+}
+@{
+    Layout = "_Layout";
+}
+<div class="content" dir="rtl">
+
+    <div class="shadow-none p-3 mb-5 bg-body-tertiary rounded" style=" margin-top:25px;">
+        <span style="font-weight:bold;">
+            <i class="glyphicon glyphicon-plus"></i>
+            فرم ایجاد شرکت جدید
+        </span>
+    </div>
+ 
+<div class="panel panel-body container-fluid" >
+        <form asp-controller="Company" asp-action="AddCompany" method="post" enctype="multipart/form-data" style="font:bold">
+        
+        <div class="col-md-6 col-xs-12">
+
+
+            <!--CompanyName-->
+            <div>
+                <label asp-for="CompanyName" class="control-label col-md-3 col-xs-12"></label>
+                <div class="col-md-9 col-xs-12">
+                    <input asp-for="CompanyName" type="text" class="form-control custominput" placeholder="عنوان شرکت ..." autocomplete="off" />
+                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!--EconomyCode-->
+            <div>
+                <label asp-for="EconomyCode" class="control-label col-md-3 col-xs-12"></label>
+                <div class="col-md-9 col-xs-12">
+                    <input asp-for="EconomyCode" type="text" class="form-control custominput" placeholder="شماره اقتصادی ..." autocomplete="off" />
+                    <span asp-validation-for="EconomyCode" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+
+                <!--ManagerName-->
+                <div>
+                    <label asp-for="ManagerName" class="control-label col-md-3 col-xs-12"></label>
+                    <div class="col-md-9 col-xs-12">
+                        <input asp-for="ManagerName" type="text" class="form-control custominput" placeholder="نام و نام خانوادگی مدیر عامل ..." autocomplete="off" />
+                        <span asp-validation-for="ManagerName" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+            <!--ManagerId-->
+            <div>
+                <label asp-for="ManagerId" class="control-label col-md-3 col-xs-12"></label>
+                <div class="col-md-9 col-xs-12">
+                    <input asp-for="ManagerId" type="text" class="form-control custominput" placeholder="کد ملی مدیر عامل ..." autocomplete="off" />
+                    <span asp-validation-for="ManagerId" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="col-xs-12 form-group" style="margin-top:15px;">
+            <input type="submit" style="border:1px solid gray; border-radius:3px;"
+                   value="ثبت شرکت جدید" class="btn btn-primary" />
+        </div>
+
+    </form>
+        <div class="col-xs-12 form-group" style="margin-top:15px;">
+        <a class="btn-link " asp-controller="Company" asp-action="index">
+            <i class="glyphicon glyphicon-plus"></i>
+            بازگشت
+        </a>
+        </div>
+</div>
+</div>

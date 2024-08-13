@@ -1,0 +1,31 @@
+﻿@model Contract_Report2.ModelDataLayer.Entities.Company
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<form asp-controller="Company" asp-action="DeleteCompany" method="post">
+    <div class="modal-header" style="background-color:darkred; color:white; border-radius:5px 5px 0 0;">
+        <button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">حذف شرکت</h4>
+    </div>
+
+
+    <div class="modal-body form-horizontal">
+        آیا از حذف شرکت با نام <span style="font-weight:bold;">@Model.CompanyName</span> مطمئن هستید؟
+    </div>
+
+
+    <input type="hidden" asp-for="CompanyID " />
+
+    
+    <div class="modal-footer" dir="rtl">
+        <button class="btn btn-default" type="button" style="width:80px;" data-dismiss="modal">بازگشت</button>
+        <button type="submit" class="btn" style="width:80px; color:white; background-color:darkred;">
+            حذف کن!
+        </button>
+    </div>
+
+</form>
+</html>

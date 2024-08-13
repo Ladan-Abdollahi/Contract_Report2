@@ -1,0 +1,20 @@
+﻿.zandgar__wizard {
+    display: block;
+    height: 100%;
+    position: relative;
+}
+
+    .zandgar__wizard .zandgar__step {
+        display: none;
+    }
+
+        .zandgar__wizard .zandgar__step.zandgar__step__active {
+            display: block;
+        }
+
+.col-img {
+    /* https://unsplash.com/photos/yWwob8kwOCk */
+    background: scroll center url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');
+    background-size: cover;
+    min-height: 100vh;
+}

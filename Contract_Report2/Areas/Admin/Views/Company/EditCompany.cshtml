@@ -1,0 +1,61 @@
+﻿@model Contract_Report2.ModelDataLayer.Entities.Company
+@{
+    ViewData["Title"] = "EditCompany";
+}
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>ویرایش شرکت ...</h3>
+        <div class="panel panel-body container" style="border-top:10px; box-shadow:3px 1px 1px 0 gray; background-color:#e6e2e2;">
+            
+    <form asp-controller="Company" asp-action="EditCompany" method="post" enctype="multipart/form-data">
+
+<div class="Content">
+ @*    <div class="panel panel-heading" style="box-shadow:3px 1px 1px 0 gray; border-radius:2px;">
+        <span style="font-weight:bold;">
+            <i class="glyphicon glyphicon-plus"></i>
+         فرم ویرایش شرکت ها
+        </span>
+    </div> *@
+    <input asp-for="CompanyID" class="hidden" />
+    <!--ComapnyName-->
+    <div>
+        <label asp-for="CompanyName" class="control-label col-md-3 col-xs-12"></label>
+        <div class="col-md-9 col-xs-12">
+            <input asp-for="CompanyName " type="text" class="form-control custominput" placeholder="نام کار ..." autocomplete="off" />
+            <span asp-validation-for="CompanyName" class="text-danger"></span>
+        </div>
+    </div>
+    <!--EconomyCode-->
+
+    <div>
+        <label asp-for="EconomyCode " class="control-label col-md-3 col-xs-12"></label>
+        <div class="col-md-9 col-xs-12">
+            <input asp-for="EconomyCode " type="text" class="form-control custominput" placeholder="نام کار ..." autocomplete="off" />
+            <span asp-validation-for="EconomyCode" class="text-danger"></span>
+        </div>
+    </div>
+    <!--ManagerName-->
+    <div>
+        <label asp-for="ManagerName " class="control-label col-md-3 col-xs-12"></label>
+        <div class="col-md-9 col-xs-12">
+            <input asp-for="ManagerName " type="text" class="form-control custominput" placeholder="نام کار ..." autocomplete="off" />
+            <span asp-validation-for="ManagerName" class="text-danger"></span>
+        </div>
+    </div>
+    <!--ManagerId-->
+    <div>
+        <label asp-for="ManagerId " class="control-label col-md-3 col-xs-12"></label>
+        <div class="col-md-9 col-xs-12">
+            <input asp-for="ManagerId " type="text" class="form-control custominput" placeholder="نام کار ..." autocomplete="off" />
+            <span asp-validation-for="ManagerId" class="text-danger"></span>
+        </div>
+    </div>
+
+</div>
+        <div class="col-xs-12 form-group" style="margin-top:15px; margin-bottom:15px;">
+            <input type="submit" style="border:10px; border-radius:3px;"
+                   value="ویرایش شرکت " class="btn btn-primary" />
+        </div>
+</form>
+</div>
