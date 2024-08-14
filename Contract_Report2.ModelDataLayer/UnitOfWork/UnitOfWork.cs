@@ -43,20 +43,8 @@ namespace Contract_Report2.ModelDataLayer.UnitOfWork
 
         public void Save() { _dbContext.SaveChanges(); }
 
-        IEntityDataBaseTransaction IUnitOfwork.BeginTransaction()
-        {
-            throw new NotImplementedException();
-        }
+    
 
-        void IUnitOfwork.Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IUnitOfwork.Save()
-        {
-            throw new NotImplementedException();
-        }
         #endregion
     }
 }
