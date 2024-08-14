@@ -1,118 +1,237 @@
-﻿@model Contract_Report2.ModelDataLayer.Entities.Company
+﻿@model Contract_Report2.ModelDataLayer.Entities.Contract
+
 @{
     ViewData["Title"] = "AddContract";
 }
 @{
     Layout = "_Layout";
 }
+<header>
+    <div id="flip" style="padding: 3px; text-align:right; background-color: #e5eecc; border: solid 1px #c3c3c3; font-size:small">جهت اطلاع از شیوه عملکرد فرم کلیک کنید!</div>
+    <div id="panel" style="  padding: 10px;display: none; text-align: right; background-color: #e5eecc; border: solid 1px #c3c3c3; font-size:small"> ...جهت راحتی کاربران، این فرم در 4 مراحله طراحی شده است </div>
+</header>
+<section>
+    <div class="container" >
+        <div class="row d-flex justify-content-center">
+            @* <div class="col-md-8> *@
+            <div class="wizard" style="padding:50px ">
 
-<div class="wizard">
-    <div class="step active">
-       <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Step1</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-    <button>Save</button>
-  </div>
-</div>
-    </div>
-    <div class="step" style="display:none">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Step2</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <div class="wizard-inner">
+                    @* <div class="connecting-line"></div>   *@
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="disabled" style="width:250px ;text-align:center">
+                            <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" aria-expanded="true" id="BTN1">
+                                <span class="round-tab">1 </span>
+                                <div> <i>ثبت اطلاعات اولیه قرار داد </i></div>
+
+                            </a>
+
+
+                        </li>
+
+                        <li role="presentation" class="disabled" style="width:250px;  text-align:center">
+
+                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" aria-expanded="false" id="BTN2">
+                                <span class="round-tab">2</span>
+                                <div><i>اطلاعات بوجه</i></div>
+                            </a>
+
+                        </li>
+
+                        <li role="presentation" class="disabled" style="width:250px;  text-align:center">
+                            <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" aria-expanded="false" id="BTN3">
+                                <span class="round-tab">3</span>
+                                <div><i> شرکت های شرکت کننده</i></div>
+                            </a>
+                        </li>
+
+                        <li role="presentation" class="disabled" style="width:250px;  text-align:center">
+                            <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" aria-expanded="false">
+                                <span class="round-tab">4</span>
+                                <div><i>اطلاعات بوجه</i></div>
+                            </a>
+                        </li>
+
+                 
+
+                    </ul>
+                </div>
+
+                <form asp-controller="Company" asp-action="AddCompany" method="post" enctype="multipart/form-data" style="font:bold">
+
+                    <div id="main_form" class="tab-content">
+                        <div class="tab-pane active " role="tabpanel" id="step1">
+                            <h5  style=" padding-bottom:20px ; color:forestgreen;" >ثبت اطلاعات اولیه قرار داد</h5>
+                            <div class="col-md-6 col-xs-12">
+                                <!--ContractDescription-->
+                                <div style="padding-bottom:15px ">
+                                   <label asp-for="ContractDescription" class="control-label col-md-3 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="ContractDescription" type="text" class="form-control custominput" placeholder="شرح قرارداد ..." autocomplete="off" />
+                                        <span asp-validation-for="ContractDescription" class="text-danger"></span>
+                                    </div>
+                                </div>
+                               
+                                <!--ContractNumber-->
+                                <div style="padding-bottom:15px ">
+                                    <label asp-for="ContractNumber " class="control-label col-md-3 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="ContractNumber " type="text" class="form-control custominput" placeholder="شماره قرارداد ..." autocomplete="off" />
+                                        <span asp-validation-for="ContractNumber " class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <!--Contracttype-->
+                                <div style="padding-bottom:15px ">
+
+                                 <label asp-for="ContractType" class="control-label col-md-3 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="ContractType " type="text" class="form-control custominput" placeholder="نوع قرارداد ..." autocomplete="off" />
+                                        <span asp-validation-for="ContractType" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <!--Contracttype-->
+                                <div style="padding-bottom:15px ">
+                                    <label asp-for="EstimatedCost" class="control-label col-md-3 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="EstimatedCost " type="text" class="form-control custominput" placeholder=" مبلغ برآورد هزینه ..." autocomplete="off" />
+                                        <span asp-validation-for="EstimatedCost" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-xs-12" style="padding-bottom:15px ">
+                               <labe>بازنگری شرح کار</labe>
+                                
+                                    <div class="col-md-9 col-xs-12">
+                                        <label asp-for="ReviewAndEditting" class="control-label col-md-9 col-xs-12"></label>
+                                        <input asp-for="ReviewAndEditting" type="radio"  value="true" />
+                                        <span asp-validation-for="ReviewAndEditting" class="text-danger"></span>
+                                    </div>
+                                 
+                                    <div class="col-md-9 col-xs-12">
+                                        <label asp-for="Committee" class="control-label col-md-9 col-xs-12"></label>
+                                        <input asp-for="Committee" type="radio" value="true" />
+                                        <span asp-validation-for="Committee" class="text-danger"></span>
+                                    </div>
+                                
+                                    <div class="col-md-9 col-xs-12">
+                                        <label asp-for="CommitteeApproval" class="control-label col-md-9 col-xs-12"></label>
+                                        <input asp-for="CommitteeApproval" type="radio" value="true" />
+                                        <span asp-validation-for="ReviewAndEditting" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <!--HowToAssign-->
+                                <div style="padding-bottom:15px">
+                                    <label asp-for="HowToAssign" class="control-label col-md-3 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="HowToAssign " type="text" class="form-control custominput" placeholder="نحوه واگزاری ..." autocomplete="off" />
+                                        <span asp-validation-for="HowToAssign" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+
+                                <!-- RateDeadline-->
+                                <div style="padding-bottom:15px">
+                                    <label asp-for="RateDeadline" class="control-label col-md-3 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="RateDeadline " type="text" class="form-control custominput" placeholder="مهلت ارايه نرخ ..." autocomplete="off" />
+                                        <span asp-validation-for="RateDeadline" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="tab-pane" role="tabpanel" id="step2">
+                            <h5 style=" padding-bottom:20px ; color:forestgreen;">اطلاعات بودجه</h5>
+                            <div class="col-md-6 col-xs-12">
+                                <!--BudgetRequestDate-->
+                                <div style="padding-bottom:15px" >
+                                    <label asp-for="BudgetRequestDate" class="control-label col-md-3 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="BudgetRequestDate" type="text" class="form-control custominput" placeholder="تاریخ درخواست بودجه ..." autocomplete="off" />
+                                        <span asp-validation-for="BudgetRequestDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <!--BudgetApprovalDate-->
+                                <div style="padding-bottom:15px" >
+                                    <label asp-for="BudgetApprovalDate " class="control-label col-md-3 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="BudgetApprovalDate " type="text" class="form-control custominput" placeholder="تاریخ تایید بودجه ..." autocomplete="off" />
+                                        <span asp-validation-for="BudgetApprovalDate " class="text-danger"></span>
+                                    </div>
+                                </div>
+                     
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+
             </div>
         </div>
     </div>
-    <div class="step" style="display:none">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-    </div>
-    <div class="step" style="display:none">
-        <div class="card" style="width: 18rem;">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-        </div>
-    </div>
-    <div class="step" style="display:none">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-            </div>
-        </div>
-    </div>
+</section>
 
-    <input type="button" class="prev" style="display: none" value="Previous" />
-    <input type="button" class="next" value="Next" />
-</div>
-
-
-@section scripts{
-    <script type="text/javascript">
-        $(function () {
-            $('.wizard .prev').click(function () {
-                var wizard = $(this).parent('.wizard');
-
-                $('.step.active', wizard).hide();
-
-                var currentStep = $('.step.active', wizard);
-                currentStep.hide();
-                currentStep.removeClass('active');
-
-                var newStep = currentStep.prev('.step', wizard);
-                newStep.addClass('active');
-                newStep.show();
-
-                if ($('.step:first', wizard)[0] == newStep[0]) {
-                    $(this).hide();
-                }
-
-                $('.next', wizard).show();
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("input").focus(function () {
+                $(this).css("background-color", "cornflowerblue");
+            });
+            $("input").blur(function () {
+                $(this).css("background-color", "#e5e5e5");
             });
 
-            $('.wizard .next').click(function () {
-                    
-                var wizard = $(this).parent('.wizard');
+            $("#BTN1").click(function () {
+                $("#step1").fadeIn();
+                $("#step2").hide()
+            });
 
-                $('.step.active', wizard).hide();
-
-                var currentStep = $('.step.active', wizard);
-                currentStep.hide();
-                currentStep.removeClass('active');
-
-                var newStep = currentStep.next('.step', wizard);
-                newStep.addClass('active');
-                newStep.show();
-
-                if ($('.step:last', wizard)[0] == newStep[0]) {
-                    $(this).hide();
-                }
-
-                $('.prev', wizard).show();
+            $("#BTN2").click(function () {
+                $("#step2").fadeIn();
+                $("#step1").hide()
+            });
+            $("#BTN3").click(function () {
+                $("#step3").fadeIn();
+                $("#step2").hide();
+                $("#step1").hide()
+            });
+            $("#flip").click(function () {
+                $("#panel").slideToggle("Show");
             });
         });
+
+        // $(document).ready(function () {
+        //     // $('.nav-tabs > li a[title]').tooltip();
+
+        //     //Wizard
+        //     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+
+        //         // var target = $(e.target);
+
+        //         // if (target.parent().hasClass('disabled')) {
+        //         //     return false;
+        //         // }
+        //         $(this).addClass('active');
+        //     });
+        // });
+
+
+
+
+        $('.nav-tabs').on('click', 'li', function () {
+            $('.nav-tabs li.active').removeClass('active');
+            $(this).addClass('active');
+            // console.log('djhjdh');
+        });
+
+
     </script>
 }
+

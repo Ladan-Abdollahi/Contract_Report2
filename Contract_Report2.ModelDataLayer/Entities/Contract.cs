@@ -28,7 +28,7 @@ namespace Contract_Report2.ModelDataLayer.Entities
         public required string ContractDescription { get; set; }
        
         
-        [Display(Name = " مبلغ برآورد هزینه")]
+        [Display(Name = "  مبلغ برآورد هزینه")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0}.وارد نشده است ")]
         [RegularExpression(@"^[a-zA-Z''-'\s]$",
          ErrorMessage = "از این کارکترها نمی توان استفاده کرد.")]
@@ -49,7 +49,7 @@ namespace Contract_Report2.ModelDataLayer.Entities
         [Display(Name = "تاریخ درخواست بودجه")]
         public string? BudgetRequestDate { get; set; }
 
-        [Display(Name = "تاریخ تایید بودجه قرارداد")]
+        [Display(Name = " تایید بودجه قرارداد")]
         public string? BudgetApprovalDate { get; set; }
 
         [Display(Name = "نحوه واگزاری")]

@@ -8,8 +8,9 @@ namespace Contract_Report2.Areas.Admin.Controllers
     {
         public IActionResult Index()
         {
-            var model = unitOfwork.companyUW.Get();
-            return View(model);
+            //var model = unitOfwork.companyUW.Get();
+            //return View(model);
+            return View();
 
 
         }
