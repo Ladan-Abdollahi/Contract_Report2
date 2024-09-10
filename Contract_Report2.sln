@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contract_Report2", "Contrac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contract_Report2.ModelDataLayer", "Contract_Report2.ModelDataLayer\Contract_Report2.ModelDataLayer.csproj", "{2F5B073E-6AED-4FCA-89CD-BB5F4573ECC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contract_Report.CommonLayer", "Contract_Report.CommonLayer\Contract_Report.CommonLayer.csproj", "{B6B109DE-23F4-44F1-ABC5-58E2C3C745AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contract_Report2.CommonLayer", "Contract_Report.CommonLayer\Contract_Report2.CommonLayer.csproj", "{B6B109DE-23F4-44F1-ABC5-58E2C3C745AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

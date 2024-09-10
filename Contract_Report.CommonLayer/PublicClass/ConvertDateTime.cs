@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PCIS.CommonLayer.PublicClass
+namespace Contract_Report2.CommonLayer.PublicClass
 {
     public static class ConvertDateTime
     {

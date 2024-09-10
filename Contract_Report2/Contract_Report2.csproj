@@ -42,6 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Contract_Report.CommonLayer\Contract_Report2.CommonLayer.csproj" />
     <ProjectReference Include="..\Contract_Report2.ModelDataLayer\Contract_Report2.ModelDataLayer.csproj" />
   </ItemGroup>
 

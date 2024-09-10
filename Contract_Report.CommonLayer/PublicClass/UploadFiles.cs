@@ -4,9 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using PCIS.CommonLayer.Services;
+using Contract_Report2.CommonLayer.PublicClass;
 
-namespace PCIS.CommonLayer.PublicClass
+namespace  Contract_Report2.CommonLayer.PublicClass
 {
     public class UploadFiles : IUploadFiles
     {

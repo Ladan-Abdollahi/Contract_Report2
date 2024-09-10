@@ -1,5 +1,4 @@
 ﻿@model Contract_Report2.ModelDataLayer.Entities.Contract
-
 @{
     ViewData["Title"] = "AddContract";
 }
@@ -16,7 +15,7 @@
             @* <div class="col-md-8> *@
             <div class="wizard" style="padding:50px ">
 
-                <div class="wizard-inner">
+                <div class="wizard-inner" style="font-weight:14">
                     @* <div class="connecting-line"></div>   *@
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="disabled" style="width:250px ;text-align:center">
@@ -41,18 +40,9 @@
                         <li role="presentation" class="disabled" style="width:250px;  text-align:center">
                             <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" aria-expanded="false" id="BTN3">
                                 <span class="round-tab">3</span>
-                                <div><i> شرکت های شرکت کننده</i></div>
+                                <div><i>مشخصات قرار داد بعد مشخص شدن پیمانکار</i></div>
                             </a>
-                        </li>
-
-                        <li role="presentation" class="disabled" style="width:250px;  text-align:center">
-                            <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" aria-expanded="false">
-                                <span class="round-tab">4</span>
-                                <div><i>اطلاعات بوجه</i></div>
-                            </a>
-                        </li>
-
-                 
+                        </li>          
 
                     </ul>
                 </div>
@@ -162,13 +152,83 @@
                                         <span asp-validation-for="BudgetApprovalDate " class="text-danger"></span>
                                     </div>
                                 </div>
+                                <!--HowToAssign-->
+                                <div style="padding-bottom:15px">
+                                    <label asp-for="HowToAssign" class="control-label col-md-3 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="HowToAssign" type="text" class="form-control custominput" placeholder="نحوه واگزاری ..." autocomplete="off" />
+                                        <span asp-validation-for="HowToAssign" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <!--RateDeadline-->
+                                <div style="padding-bottom:15px">
+                                    <label asp-for="RateDeadline " class="control-label col-md-3 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="RateDeadline " type="text" class="form-control custominput" placeholder="مهلت ارايه نرخ ..." autocomplete="off" />
+                                        <span asp-validation-for="RateDeadline " class="text-danger"></span>
+                                    </div>
+                                </div>
                      
                             </div>
 
 
                         </div>
 
-                    </div>
+                        <div class="tab-pane" role="tabpanel" id="step3">
+                            <h5 style=" padding-bottom:20px ; color:forestgreen;">مشخصات قرار داد بعد مشخص شدن پیمانکار</h5>
+                            <div class="col-md-6 col-xs-12">
+                                <!--OpeningDate-->
+                                <div style="padding-bottom:15px">
+                                    <label asp-for="OpeningDate" class="control-label col-md-9 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="OpeningDate" type="text" class="form-control custominput" placeholder="تاریخ گشایش پاکات ..." autocomplete="off" />
+                                        <span asp-validation-for="OpeningDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <!--FixedAmount-->
+                                <div style="padding-bottom:15px">
+                                    <label asp-for="FixedAmount " class="control-label col-md-9 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="FixedAmount " type="text" class="form-control custominput" placeholder="مبلغ قطعی قرارداد به ریال ..." autocomplete="off" />
+                                        <span asp-validation-for="FixedAmount " class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <!--BankGurantee-->
+                                <div style="padding-bottom:15px">
+                                  
+                                    <div class="col-md-9 col-xs-12">
+                                        <label asp-for="BankGurantee " class="control-label col-md-4 col-xs-4"></label>
+                                        <input asp-for="BankGurantee " type="radio"  value="True"  />
+                                        <span asp-validation-for="BankGurantee " class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!--StratWorkDate-->
+                        
+                                <div style="margin-bottom:15px;">
+                                    <label asp-for="StratWorkDate" class="control-label col-md-3 col-xs-12" for="StratWorkDate"></label>
+                                    <div class="input-group col-md-9 col-xs-12" style="padding-left:9px; padding-right:9px;">
+                                        <div class="input-group-addon"
+                                             style="border:1px solid gray; padding:6px">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </div>
+                                        <input asp-for="StratWorkDate" id="StratWorkDate" name="StratWorkDate" type="datetime"
+                                               class="form-control custominput" data-mddatetimepicker="true" data-placement="right"
+                                               data-mdpersiandatetimepicker="" data-trigger="focus" data-enabletimepicker="true"
+                                               data-mdpersiandatetimepickerselecteddatetime="{&quot;Year&quot;:1399,&quot;Month&quot;:1,&quot;Day&quot;:13,&quot;Hour&quot;:0,&quot;Minute&quot;:0,&quot;Second&quot;:0}"
+                                               data-mdpersiandatetimepickershowing="true" aria-describedby="popover265350">
+
+                                    </div>
+                                    <span asp-validation-for="StratWorkDate" style="margin-top:10px;" class="text-danger col-md-offset-3 col-md-9 col-xs-12"></span>
+                                </div>
+                        
+                            </div>
+                     
+                        </div>
+
+                        </div>
+
+                  
 
                 </form>
 
@@ -190,17 +250,20 @@
 
             $("#BTN1").click(function () {
                 $("#step1").fadeIn();
-                $("#step2").hide()
+                $("#step2").hide();
+                $("#step3").hide();
             });
 
             $("#BTN2").click(function () {
                 $("#step2").fadeIn();
-                $("#step1").hide()
+                $("#step1").hide();
+                $("#step3").hide();
+
             });
             $("#BTN3").click(function () {
                 $("#step3").fadeIn();
                 $("#step2").hide();
-                $("#step1").hide()
+                $("#step1").hide();
             });
             $("#flip").click(function () {
                 $("#panel").slideToggle("Show");

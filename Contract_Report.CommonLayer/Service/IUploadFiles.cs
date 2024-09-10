@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PCIS.CommonLayer.Services
+namespace  Contract_Report2.CommonLayer.PublicClass
 {
     public interface IUploadFiles
     {
