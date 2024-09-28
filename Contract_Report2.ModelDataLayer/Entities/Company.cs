@@ -15,6 +15,7 @@ namespace Contract_Report2.ModelDataLayer.Entities
       
 
         [Key]
+      
         public int CompanyID{ get; set; }
 
         [Display(Name ="نام شرکت")]
@@ -43,11 +44,13 @@ namespace Contract_Report2.ModelDataLayer.Entities
   // ErrorMessage = "از این کارکترها نمی توان استفاده کرد.")]
         public string? ManagerId { get; set; }
 
-
+        [Display(Name = " شرح قرارداد ")]
         public int? ContractId { set; get; }
         [ForeignKey("ContractId")]
-        public virtual Contract contract { get; set; }
+        [Display(Name = " شرح قرارداد")]
+        public virtual Contract? contract { get; set; }
 
+        [Display(Name = " شرکت برنده در قرار داد ")]
         public bool? IsWin { get; set; }
     }
 }

@@ -16,6 +16,7 @@ namespace Contract_Report2.ModelDataLayer.UnitOfWork
     {
         #region "ForAnyEntity"
         GenericRepository<Company> companyUW { get; }
+        GenericRepository<Contract> contractUW { get; }
 
         #endregion
 

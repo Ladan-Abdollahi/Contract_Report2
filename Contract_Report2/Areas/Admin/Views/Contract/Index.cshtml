@@ -1,1 +1,162 @@
-﻿
+﻿@model IEnumerable<Contract_Report2.ModelDataLayer.Entities.Contract >
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="content" dir="rtl" style="font-family:'B Nazanin'">
+    @*    <div class="shadow-none p-3 mb-5 bg-body-tertiary rounded" style=" margin-top:25px;">
+    لیست شرکت ها
+    </div> *@
+
+    <div style="margin-bottom:25px ; margin-top:25px" >
+        <a class="btn btn-primary" asp-controller="Contract" asp-action="AddContract">
+            <i class="glyphicon glyphicon-plus"></i>
+            افزودن قرارداد جدید
+        </a>
+    </div>
+
+    <div>
+        <div class="w3-example">
+            <table class=" table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        @*  <th>
+                        @Html.DisplayNameFor(model => model.CompanyID)
+                        </th> *@
+                        <th>
+                            @Html.DisplayNameFor(model => model.ContractNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ContractDescription)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EstimatedCost)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Committee)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CommitteeApproval)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BudgetRequestDate)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.RateDeadline)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.HowToAssign)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.OpeningDate)
+                        </th>
+                           <th>
+                            @Html.DisplayNameFor(model => model.FixedAmount)
+
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BankGurantee)
+
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ContractType)
+
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StratWorkDate)
+
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EndWorkDate)
+
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TimeExtension)
+
+
+                        <th>
+                                @Html.DisplayNameFor(model => model.RealFinishDate)
+
+                        </th>
+                        <th>
+                                @Html.DisplayNameFor(model => model.ApplicantUnit)
+
+                        </th>
+                        <th>
+                            عملیات
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @*    <td>
+                        @Html.DisplayFor(modelItem=>item.CompanyID )
+                        </td> *@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ContractNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ContractDescription)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EstimatedCost)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Committee)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CommitteeApproval)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BudgetRequestDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RateDeadline)
+                            </td>
+                               <td>
+                                @Html.DisplayFor(modelItem => item.HowToAssign)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OpeningDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FixedAmount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BankGurantee)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ContractType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StratWorkDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EndWorkDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TimeExtension)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RealFinishDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicantUnit)
+                            </td>
+
+                            <td>
+                                <a class="btn btn-primary" asp-controller="Contract" asp-action="EditContract" asp-route-CompanyID="@item.Id">ویرایش</a> |
+                                <a class="btn btn-danger" asp-controller="Contract" asp-action="DeleteContract" asp-route-CompanyID="@item.Id">حذف</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

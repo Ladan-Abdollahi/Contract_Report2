@@ -33,7 +33,20 @@ namespace Contract_Report2.ModelDataLayer.UnitOfWork
             }
         }
 
-        
+        private GenericRepository<Contract> _contract;
+
+        public GenericRepository<Contract > contractUW
+        {
+            get
+            {
+                if (_contract == null)
+                {
+                    _contract = new GenericRepository<Contract>(_dbContext);
+                }
+                return _contract;
+            }
+        }
+
         #endregion
 
         #region BasicFunctions

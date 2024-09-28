@@ -3,7 +3,7 @@
     Layout = "_LayoutAdmin";
 }
 
-<div class="content" dir="rtl">
+<div class="content" dir="rtl" style="font-family:'B Nazanin' ;"   >
  @*    <div class="shadow-none p-3 mb-5 bg-body-tertiary rounded" style=" margin-top:25px;">
         لیست شرکت ها
     </div> *@
@@ -16,8 +16,8 @@
     </div>
 
     <div>
-        <div class="w3-example">
-            <table class=" table table-bordered table-striped table-hover" style="border-radius:2px; box-shadow:3px 3px 1px 0 gray;">
+        <div class="container-fluid">
+            <table class=" table table-bordered table-striped table-hover " >
                 <thead>
                     <tr>
                        @*  <th>
@@ -34,6 +34,12 @@
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.ManagerId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ContractId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IsWin )
                         </th>
                         <th>
                             عملیات
@@ -60,7 +66,13 @@
                                 @Html.DisplayFor(modelItem => item.ManagerId)
                             </td>
                             <td>
-                                <a class="btn btn-primary" asp-controller="Company" asp-action="EditCompany" asp-route-CompanyID="@item.CompanyID">ویرایش</a> |
+                                @Html.DisplayFor(modelItem => item.ContractId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsWin)
+                            </td>
+                            <td>
+                                <a class="btn btn-success  " asp-controller="Company" asp-action="EditCompany" asp-route-CompanyID="@item.CompanyID">ویرایش</a> |
                                 <a class="btn btn-danger" asp-controller="Company" asp-action="DeleteCompany" asp-route-CompanyID="@item.CompanyID">حذف</a>
                             </td>
                         </tr>

@@ -6,6 +6,8 @@ using Contract_Report2.ModelDataLayer.Entities;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Routing.Patterns;
 
 namespace Contract_Report2.Areas.Admin.Controllers
 {
@@ -18,7 +20,8 @@ namespace Contract_Report2.Areas.Admin.Controllers
         // private readonly INotyfService notyf;
         public IActionResult Index()
         {
-            var model = unitOfwork.companyUW.Get();
+            var model = unitOfwork.companyUW.Get( );
+            
             return View(model);
 
         }
@@ -26,7 +29,9 @@ namespace Contract_Report2.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult AddCompany()
         {
+            ViewBag.Contracts = GetContracts();
             return View();
+
         }
 
         [HttpPost]
@@ -66,8 +71,8 @@ namespace Contract_Report2.Areas.Admin.Controllers
             {
 
                 //update
-              //  var Company = unitOfwork.companyUW.GetById(model.CompanyID);
-                unitOfwork.companyUW.update (model);
+                //  var Company = unitOfwork.companyUW.GetById(model.CompanyID);
+                unitOfwork.companyUW.update(model);
                 unitOfwork.Save();
                 //if (result.Succeeded)
                 //{
@@ -86,7 +91,7 @@ namespace Contract_Report2.Areas.Admin.Controllers
             {
                 return RedirectToAction("ErrorView", "Home");
             }
-            var model = unitOfwork.companyUW .GetById(CompanyID);
+            var model = unitOfwork.companyUW.GetById(CompanyID);
             if (model == null)
             {
                 return RedirectToAction("ErrorView", "Home");
@@ -97,9 +102,9 @@ namespace Contract_Report2.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteCompany(Company model )
+        public IActionResult DeleteCompany(Company model)
         {
-            if (model == null )
+            if (model == null)
             {
                 return RedirectToAction("ErrorView", "Home");
             }
@@ -121,6 +126,21 @@ namespace Contract_Report2.Areas.Admin.Controllers
             }
         }
 
+        public List<SelectListItem > GetContracts()
+        {
+            var ListContracts=new List<SelectListItem>();
+            List<Contract> Contracts = unitOfwork.contractUW.Get().ToList();
+            ListContracts= Contracts.Select(co=>new SelectListItem() 
+            { 
+            Value=co.Id.ToString(),
+            Text=co.ContractDescription
+           
+            }).ToList();
+          return 
+            ListContracts;
 
+
+
+        }
     }
 }

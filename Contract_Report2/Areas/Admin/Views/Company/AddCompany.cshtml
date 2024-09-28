@@ -1,11 +1,12 @@
 ﻿@model Contract_Report2.ModelDataLayer.Entities.Company
 @{
     ViewData["Title"] = "AddCompany";
+  
 }
 @{
-    Layout = "_Layout";
+    Layout = "_LayoutAdmin";
 }
-<div class="content" dir="rtl">
+<div class="content" dir="rtl" style="font-family:'B Nazanin'">
 
     <div class="shadow-none p-3 mb-5 bg-body-tertiary rounded" style=" margin-top:25px;">
         <span style="font-weight:bold;">
@@ -21,7 +22,7 @@
 
 
             <!--CompanyName-->
-            <div>
+                <div style="padding-bottom:15px">
                 <label asp-for="CompanyName" class="control-label col-md-3 col-xs-12"></label>
                 <div class="col-md-9 col-xs-12">
                     <input asp-for="CompanyName" type="text" class="form-control custominput" placeholder="عنوان شرکت ..." autocomplete="off" />
@@ -30,19 +31,15 @@
             </div>
 
             <!--EconomyCode-->
-            <div>
+                <div style="padding-bottom:15px">
                 <label asp-for="EconomyCode" class="control-label col-md-3 col-xs-12"></label>
                 <div class="col-md-9 col-xs-12">
                     <input asp-for="EconomyCode" type="text" class="form-control custominput" placeholder="شماره اقتصادی ..." autocomplete="off" />
                     <span asp-validation-for="EconomyCode" class="text-danger"></span>
                 </div>
             </div>
-
-
-
-
                 <!--ManagerName-->
-                <div>
+                <div style="padding-bottom:15px">
                     <label asp-for="ManagerName" class="control-label col-md-3 col-xs-12"></label>
                     <div class="col-md-9 col-xs-12">
                         <input asp-for="ManagerName" type="text" class="form-control custominput" placeholder="نام و نام خانوادگی مدیر عامل ..." autocomplete="off" />
@@ -50,10 +47,8 @@
                     </div>
                 </div>
 
-
-
             <!--ManagerId-->
-            <div>
+                <div style="padding-bottom:15px">
                 <label asp-for="ManagerId" class="control-label col-md-3 col-xs-12"></label>
                 <div class="col-md-9 col-xs-12">
                     <input asp-for="ManagerId" type="text" class="form-control custominput" placeholder="کد ملی مدیر عامل ..." autocomplete="off" />
@@ -61,13 +56,29 @@
                 </div>
             </div>
 
+                <!--ContractId-->
+                <div style="padding-bottom:15px">
+                    <label asp-for="ContractId" class="control-label col-md-3 col-xs-12"></label>
+                    <div class="col-md-9 col-xs-12">
+                        <select asp-for="ContractId" class="form-select" aria-label="Default select example" asp-items="ViewBag.contracts" ></select>
+                 
+                    </div>
+                </div>
 
+                <!--IsWin-->
+                <div style="padding-bottom:15px">
+
+                    <div class="col-md-9 col-xs-12">
+                        <label asp-for="IsWin" class="control-label col-md-4 col-xs-4"></label>
+                        <input asp-for="IsWin" class="form-check-input" value=""  type="radio" />
+              
+                    </div>
+                </div>
 
         </div>
 
-        <div class="col-xs-12 form-group" style="margin-top:15px;">
-            <input type="submit" style="border:1px solid gray; border-radius:3px;"
-                   value="ثبت شرکت جدید" class="btn btn-primary" />
+        <div class="form-group btn-group">
+            <input type="submit" value="ثبت شرکت جدید" class="btn btn-primary" />
         </div>
 
     </form>
@@ -80,3 +91,16 @@
 </div>
 
 </div>
+@section scripts {
+<script>
+    $(document).ready(function () {
+        //  $("input").focus(function () {
+        // $(this).css("background-color", "cornflowerblue");
+        $("input:text").css("background-color", "#e5e5e5");
+        //});
+        $("input").focus(function () {
+            $(this).css("background-color", "cornflowerblue");
+        });
+    });
+    </script>
+}

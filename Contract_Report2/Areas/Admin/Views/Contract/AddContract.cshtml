@@ -6,8 +6,8 @@
     Layout = "_Layout";
 }
 <header>
-    <div id="flip" style="padding: 3px; text-align:right; background-color: #e5eecc; border: solid 1px #c3c3c3; font-size:small">جهت اطلاع از شیوه عملکرد فرم کلیک کنید!</div>
-    <div id="panel" style="  padding: 10px;display: none; text-align: right; background-color: #e5eecc; border: solid 1px #c3c3c3; font-size:small"> ...جهت راحتی کاربران، این فرم در 4 مراحله طراحی شده است </div>
+@*     <div id="flip" style="padding: 3px; text-align:right; background-color: #e5eecc; border: solid 1px #c3c3c3; font-size:small">جهت اطلاع از شیوه عملکرد فرم کلیک کنید!</div>
+    <div id="panel" style="  padding: 10px;display: none; text-align: right; background-color: #e5eecc; border: solid 1px #c3c3c3; font-size:small"> ...جهت راحتی کاربران، این فرم در 4 مراحله طراحی شده است </div> *@
 </header>
 <section>
     <div class="container" >
@@ -40,14 +40,14 @@
                         <li role="presentation" class="disabled" style="width:250px;  text-align:center">
                             <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" aria-expanded="false" id="BTN3">
                                 <span class="round-tab">3</span>
-                                <div><i>مشخصات قرار داد بعد مشخص شدن پیمانکار</i></div>
+                                <div><i>مشخصات قرار داد بعد از مشخص شدن پیمانکار</i></div>
                             </a>
                         </li>          
 
                     </ul>
                 </div>
 
-                <form asp-controller="Company" asp-action="AddCompany" method="post" enctype="multipart/form-data" style="font:bold">
+                <form asp-controller="Contract" asp-action="AddContract" method="post" enctype="multipart/form-data" style="font:bold">
 
                     <div id="main_form" class="tab-content">
                         <div class="tab-pane active " role="tabpanel" id="step1">
@@ -175,7 +175,7 @@
                         </div>
 
                         <div class="tab-pane" role="tabpanel" id="step3">
-                            <h5 style=" padding-bottom:20px ; color:forestgreen;">مشخصات قرار داد بعد مشخص شدن پیمانکار</h5>
+                            <h5 style=" padding-bottom:20px ; color:forestgreen;">مشخصات قرار داد بعد از مشخص شدن پیمانکار</h5>
                             <div class="col-md-6 col-xs-12">
                                 <!--OpeningDate-->
                                 <div style="padding-bottom:15px">
@@ -205,7 +205,7 @@
 
                                 <!--StratWorkDate-->
                         
-                                <div style="margin-bottom:15px;">
+                  @*               <div style="margin-bottom:15px;">
                                     <label asp-for="StratWorkDate" class="control-label col-md-3 col-xs-12" for="StratWorkDate"></label>
                                     <div class="input-group col-md-9 col-xs-12" style="padding-left:9px; padding-right:9px;">
                                         <div class="input-group-addon"
@@ -220,15 +220,59 @@
 
                                     </div>
                                     <span asp-validation-for="StratWorkDate" style="margin-top:10px;" class="text-danger col-md-offset-3 col-md-9 col-xs-12"></span>
+                                </div> *@
+                                <div style="padding-bottom:15px">
+                                    <label asp-for="StratWorkDate " class="control-label col-md-9 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="StratWorkDate " type="text" class="form-control custominput" placeholder="شروع به کار ..." autocomplete="off" />
+                                        <span asp-validation-for="StratWorkDate " class="text-danger"></span>
+                                    </div>
                                 </div>
-                        
+                                <!--StratWorkDate-->
+                                <div style="padding-bottom:15px">
+                                    <label asp-for="EndWorkDate " class="control-label col-md-9 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="EndWorkDate " type="text" class="form-control custominput" placeholder="پایان به کار ..." autocomplete="off" />
+                                        <span asp-validation-for="EndWorkDate " class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!--TimeExtension-->
+                                <div style="padding-bottom:15px">
+                                    <label asp-for="TimeExtension " class="control-label col-md-9 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="TimeExtension " type="text" class="form-control custominput" placeholder=" تمدید زمانی به ماه ..." autocomplete="off" />
+                                        <span asp-validation-for="TimeExtension " class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!--RealFinishDate-->
+                                <div style="padding-bottom:15px">
+                                    <label asp-for="RealFinishDate " class="control-label col-md-9 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="RealFinishDate " type="text" class="form-control custominput" placeholder=" پایان کار واقعی ..." autocomplete="off" />
+                                        <span asp-validation-for="RealFinishDate " class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!--ApplicantUnit-->
+                                <div style="padding-bottom:15px">
+                                    <label asp-for="ApplicantUnit " class="control-label col-md-9 col-xs-12"></label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input asp-for="ApplicantUnit " type="text" class="form-control custominput" placeholder=" واحد متقاضی ..." autocomplete="off" />
+                                        <span asp-validation-for="ApplicantUnit " class="text-danger"></span>
+                                    </div>
+                                </div>
+
                             </div>
                      
                         </div>
 
                         </div>
 
-                  
+                    <div class="col-xs-12 form-group" style="margin-top:15px;">
+                        <input type="submit" value="ثبت قرار جدید" class="btn btn-primary" />
+                    </div>
 
                 </form>
 
@@ -241,11 +285,12 @@
 @section scripts {
     <script>
         $(document).ready(function () {
+          //  $("input").focus(function () {
+               // $(this).css("background-color", "cornflowerblue");
+            $("input:text").css("background-color", "#e5e5e5");
+            //});
             $("input").focus(function () {
                 $(this).css("background-color", "cornflowerblue");
-            });
-            $("input").blur(function () {
-                $(this).css("background-color", "#e5e5e5");
             });
 
             $("#BTN1").click(function () {

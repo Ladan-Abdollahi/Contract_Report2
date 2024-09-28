@@ -15,6 +15,7 @@ namespace Contract_Report2.ModelDataLayer.Entities
     {
        
         [Key]
+        [Display(Name = "  قرارداد")]
         public int Id { get; set; }
 
         [Display(Name = " شماره قرارداد")]
@@ -30,9 +31,7 @@ namespace Contract_Report2.ModelDataLayer.Entities
         
         [Display(Name = "  مبلغ برآورد هزینه")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0}.وارد نشده است ")]
-        [RegularExpression(@"^[a-zA-Z''-'\s]$",
-         ErrorMessage = "از این کارکترها نمی توان استفاده کرد.")]
-        public float EstimatedCost { get; set; }
+                public float EstimatedCost { get; set; }
 
 
         [Display(Name = "بررسی و تدوین")]
@@ -84,7 +83,6 @@ namespace Contract_Report2.ModelDataLayer.Entities
 
         [Display(Name = "واحد متقاضی")]
         public string? ApplicantUnit { get; set; }
-
     }
 
 
